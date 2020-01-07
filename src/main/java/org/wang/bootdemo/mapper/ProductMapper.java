@@ -65,4 +65,13 @@ public interface ProductMapper {
      * @return org.wang.bootdemo.model.Product
      */
     List<Product> getProductByProductCode(String productCode);
+
+    /**
+     * @description 根据产品名称查询产品信息
+     * @author wangHao
+     * @date 2020/1/7 22:49
+     * @param [productName]
+     * @return java.util.List<org.wang.bootdemo.model.Product>
+     */
+    List<Product> getProductListByProductName(String productName);
 }

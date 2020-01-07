@@ -52,4 +52,13 @@ public interface ProductService {
     */
    int daleteProductByProductId(int productId);
 
+   /**
+    * @description 根据产品名称查询产品信息
+    * @author wangHao
+    * @date 2020/1/7 22:48
+    * @param [productName]
+    * @return java.util.List<org.wang.bootdemo.model.Product>
+    */
+   List<Product> getProductListByProductName(String productName);
+
 }

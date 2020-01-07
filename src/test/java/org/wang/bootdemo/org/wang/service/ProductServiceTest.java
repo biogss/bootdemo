@@ -23,7 +23,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BootdemoApplication.class)
 public class ProductServiceTest {
-/*
+
     private ProductService productService;
 
     private Product product;
@@ -80,5 +80,14 @@ public class ProductServiceTest {
     public void execute5(){
         int row = productService.daleteProductByProductId(4);
     }
-    */
+
+    @Test
+    public void execute6(){
+        List<Product> productList = productService.getProductListByProductName("测试02");
+        if (productList != null && productList.size() > 0){
+            for (Product product : productList){
+                System.out.println(product.toString());
+            }
+        }
+    }
 }

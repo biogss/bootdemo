@@ -41,4 +41,9 @@ public class ProductServiceImpl implements ProductService {
     public int daleteProductByProductId(int productId) {
         return productMapper.deleteByPrimaryKey(productId);
     }
+
+    @Override
+    public List<Product> getProductListByProductName(String productName) {
+        return productMapper.getProductListByProductName(productName);
+    }
 }
