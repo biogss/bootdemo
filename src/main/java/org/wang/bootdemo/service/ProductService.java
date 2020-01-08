@@ -3,7 +3,6 @@ package org.wang.bootdemo.service;
 import org.wang.bootdemo.model.Product;
 
 import java.util.List;
-import java.util.Queue;
 
 public interface ProductService {
 
