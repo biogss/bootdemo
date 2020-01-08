@@ -46,3 +46,7 @@ mybatis:
   #下划线和驼峰互相转换
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.log4j.Log4jImpl
+logging:
+  level:
+    org.wang.bootdemo.mapper: debug

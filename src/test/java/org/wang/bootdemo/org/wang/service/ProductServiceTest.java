@@ -53,7 +53,7 @@ public class ProductServiceTest {
 
     @Test
     public void execute2(){
-        Product product = productService.getProductByProductId(1);
+        Product product = productService.getProductByProductId(11);
         System.out.println(product.toString());
     }
 
