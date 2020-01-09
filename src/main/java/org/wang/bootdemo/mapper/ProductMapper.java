@@ -6,6 +6,10 @@ import org.wang.bootdemo.model.Product;
 
 import java.util.List;
 
+/**
+ * 产品mapper类
+ * @author wanghao
+ */
 @Repository
 @Mapper
 public interface ProductMapper {

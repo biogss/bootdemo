@@ -28,3 +28,16 @@ create table t_user(
 	address varchar(200) comment '地址',
 	primary key(user_id)
 )engine=innodb charset=utf8 auto_increment=11;
+
+create table t_order(
+	order_id int not null auto_increment comment '订单编号',
+	product_id int not null comment '产品编号',
+	user_id int not null comment '用户编号',
+	order_money double not null comment '订单金额',
+	order_status varchar(8) not null comment '订单状态0-新建1-支付成功2-支付失败3-取消',
+	payway varchar(1) comment '支付方式0-支付宝1-微信',
+	create_time datetime comment '创建时间',
+	update_time datetime comment '更新时间',
+	reamrk varchar(200) comment '备注',
+	primary key (order_id)
+)engine =innodb charset =utf8 auto_increment=10;

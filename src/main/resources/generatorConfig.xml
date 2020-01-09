@@ -50,5 +50,10 @@
                enableSelectByExample="false" enableUpdateByExample="false">
             <property name="modelOnly" value="false"/>
         </table>
+        <table tableName="t_order" domainObjectName="Order"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <property name="modelOnly" value="false"/>
+        </table>
     </context>
 </generatorConfiguration>

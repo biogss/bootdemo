@@ -1,6 +1,7 @@
 package org.wang.bootdemo.model;
 
 import org.apache.tomcat.util.security.Escape;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.Date;
  *
  * @mbg.generated do_not_delete_during_merge
  */
+@Component
 public class User implements Serializable {
     /**
      * Database Column Remarks:

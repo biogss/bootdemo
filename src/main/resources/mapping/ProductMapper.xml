@@ -191,7 +191,7 @@
 
   <select id="getProductListByProductName" parameterType="java.lang.String" resultType="org.wang.bootdemo.model.Product">
     select
-    <include refid="Base_Column_List"/>
+    <include refid="Base_Column_List" />
     from t_product where product_name like concat('%',#{productName},'%')
   </select>
 </mapper>
