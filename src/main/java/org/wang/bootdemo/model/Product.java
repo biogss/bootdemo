@@ -334,7 +334,12 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     public Date getCreateTime() {
-        return createTime;
+        if(createTime == null){
+            return  null;
+        }else{
+            return (Date) createTime.clone();
+        }
+
     }
 
     /**
@@ -346,7 +351,11 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        if(createTime == null){
+           this.createTime = null;
+        }else {
+            this.createTime = (Date) createTime.clone();
+        }
     }
 
     /**
@@ -358,7 +367,12 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     public Date getUpdateTime() {
-        return updateTime;
+        if(updateTime == null){
+            return null;
+        }else {
+            return (Date) updateTime.clone();
+        }
+
     }
 
     /**
@@ -370,9 +384,14 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+        if(updateTime == null){
+            this.updateTime = null;
+        }else {
+            this.updateTime = (Date) updateTime.clone();
+        }
     }
 
+    @Override
     public String toString(){
         String str = "productId=" + getProductId() + ",productCode=" + getProductCode() + ",productName=" + getProductName() +
                 ",productPrice=" + getProductPrice() + ",productStatus=" + getProductStatus() +
