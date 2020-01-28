@@ -47,4 +47,12 @@ public interface UserService {
      * @return int
      */
     int deleteUserByUserId(int userId);
+
+    /**
+     * 根据用户名和密码获取用户信息
+     * @param username
+     * @param password
+     * @return
+     */
+    User getUserInfoByUserNameByPassword(String username, String password);
 }

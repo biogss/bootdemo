@@ -44,6 +44,7 @@ public class UserServiceTest {
         user.setName("王浩");
         user.setBirthday("1994-08-02");
         user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         user.setSex("1");
         user.setAddress("四川省南充市");
         int row = userService.registerUser(user);

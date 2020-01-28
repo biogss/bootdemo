@@ -24,7 +24,12 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public int registerUser(User user) {
-        return userMapper.insertSelective(user);
+        User userInfo = userMapper.getUserInfoByUserName(user.getUserName());
+        if (userInfo != null){
+            return 0;
+        }else {
+            return userMapper.insertSelective(user);
+        }
     }
 
     @Override
@@ -40,5 +45,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int deleteUserByUserId(int userId) {
         return userMapper.deleteByPrimaryKey(userId);
+    }
+
+    @Override
+    public User getUserInfoByUserNameByPassword(String username, String password) {
+        return userMapper.getUserInfoByUserNameByPassword(username, password);
     }
 }

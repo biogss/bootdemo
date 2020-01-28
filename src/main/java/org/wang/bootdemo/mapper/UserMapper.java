@@ -1,6 +1,7 @@
 package org.wang.bootdemo.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.wang.bootdemo.model.User;
 
@@ -58,4 +59,19 @@ public interface UserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(User record);
+
+    /**
+     * 根据用户名和密码获取用户信息
+     * @param username
+     * @param password
+     * @return
+     */
+    User getUserInfoByUserNameByPassword(@Param("username") String username, @Param("password") String password);
+
+    /**
+     * 根据用户名查询用户信息
+     * @param username
+     * @return
+     */
+    User  getUserInfoByUserName(@Param("username") String username);
 }
