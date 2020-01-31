@@ -55,12 +55,22 @@ public class OrderServiceTest {
     @Test
     public void execute3(){
         Order orderInfo = orderService.getOrderByOrderId(1);
-        System.out.println(orderInfo.toString());
+        if (orderInfo != null){
+            System.out.println(orderInfo.toString());
+        }else {
+            System.out.println("结果为空");
+        }
+
     }
 
     @Test
     public void execute4(){
         List<Order> orderList = orderService.getOrderByUserId(1);
+        if (orderList != null){
+            for (Order orderInfo : orderList) {
+                System.out.println(orderInfo.toString());
+            }
+        }
     }
 
     @Test

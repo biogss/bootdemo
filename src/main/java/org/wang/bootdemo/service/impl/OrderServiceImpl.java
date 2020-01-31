@@ -8,7 +8,9 @@ import org.wang.bootdemo.model.Order;
 import org.wang.bootdemo.service.OrderService;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName OrderServiceImpl
@@ -34,13 +36,19 @@ public class OrderServiceImpl implements OrderService {
 
 //        return orderMapper.insertSelective(order);
 
-        redisTemplate.opsForValue().set("order1", order);
+//        redisTemplate.opsForValue().set("order1", order,1000, TimeUnit.SECONDS);
+        redisTemplate.opsForList().leftPush("mylist", order);
+//        redisTemplate.opsForList().leftPush("mylist", "123");
+//        redisTemplate.opsForList().leftPush("mylist", "456");
+//        redisTemplate.opsForList().rightPush("mylist", "abc");
         return 1;
     }
 
     @Override
     public int deleteOrderByOrderId(int orderId) {
-        return orderMapper.deleteByPrimaryKey(orderId);
+//        return orderMapper.deleteByPrimaryKey(orderId);
+        redisTemplate.opsForList().trim("mylist", 1, 0);
+        return 1;
     }
 
     @Override
@@ -50,13 +58,21 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order getOrderByOrderId(int orderId) {
-        return (Order) redisTemplate.opsForValue().get("order1");
-//        return orderMapper.selectByPrimaryKey(orderId);
+//        return (Order) redisTemplate.opsForValue().get("order1");
+        return orderMapper.selectByPrimaryKey(orderId);
+
     }
 
     @Override
     public List<Order> getOrderByUserId(int userId) {
-
-        return orderMapper.getOrderByUserId(userId);
+        List<Object> redisList = redisTemplate.opsForList().range("mylist", 0, -1);
+        List<Order> orderList = new ArrayList<>();
+        if (redisList != null){
+            for (Object object : redisList){
+                orderList.add((Order) object);
+            }
+        }
+        return orderList;
+//        return orderMapper.getOrderByUserId(userId);
     }
 }
