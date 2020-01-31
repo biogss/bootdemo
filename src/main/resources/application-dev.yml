@@ -39,6 +39,15 @@ spring:
       use-global-data-source-stat: true
       # 通过connectProperties属性来打开mergeSql(Sql合并)功能；慢SQL记录(配置超过5秒就是慢，默认是3秒)
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
+    lettuce:
+      pool:
+        max-idle: 8
+        max-wait: 6000ms
+        max-active: 8
 
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
@@ -48,3 +57,4 @@ mybatis:
     map-underscore-to-camel-case: true
     #通过log4j实现类打印日志
     log-impl: org.apache.ibatis.logging.log4j.Log4jImpl
+

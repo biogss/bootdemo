@@ -3,7 +3,10 @@ package org.wang.bootdemo.org.wang.service;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.wang.bootdemo.BootdemoApplication;
 import org.wang.bootdemo.model.Order;
@@ -29,6 +32,7 @@ public class OrderServiceTest {
     @Autowired
     private Order order;
 
+    //StringRedisTemplate<String, String> stringStringRedisTemplate
     @Test
     public void execute(){
         order.setUserId(1);
@@ -51,6 +55,7 @@ public class OrderServiceTest {
     @Test
     public void execute3(){
         Order orderInfo = orderService.getOrderByOrderId(1);
+        System.out.println(orderInfo.toString());
     }
 
     @Test
@@ -62,4 +67,5 @@ public class OrderServiceTest {
     public void execute5(){
         int row = orderService.deleteOrderByOrderId(1);
     }
+
 }
