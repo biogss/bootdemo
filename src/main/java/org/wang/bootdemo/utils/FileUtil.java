@@ -19,6 +19,22 @@ public class FileUtil {
         Boolean result = false;
         File newFile = new File(newFileUrl);
         File sourceFile = new File(sourceFileUrl);
+        try {
+            //判断文件是否存在
+            if (!sourceFile.exists()) {
+                logger.error("源文件不存在：" + sourceFile.getAbsolutePath());
+                return false;
+            }
+            //判断目标文件是否存在，不存在创建一个新的文件
+            if (!newFile.exists()) {
+                if (!newFile.createNewFile()) {
+                    logger.error("目标文件不存在，创建新的目标文件失败：" + newFile.getAbsolutePath());
+                }
+            }
+        }catch (IOException e) {
+            logger.error("创建新文件发生异常：" + e.getMessage());
+            return false;
+        }
         //文本文件是有字符流处理，视频，图片等文件使用字节流处理
         if (MimeTypeUtil.isText(sourceFile)){
             System.out.println("文本文件");
@@ -42,18 +58,6 @@ public class FileUtil {
         BufferedOutputStream bos = null;
         long startTime = System.currentTimeMillis();
         try {
-            //判断文件是否存在
-            if (!sourceFile.exists()) {
-                logger.error("源文件不存在：" + sourceFile.getAbsolutePath());
-                return false;
-            }
-            //判断目标文件是否存在，不存在创建一个新的文件
-            if (!newFile.exists()) {
-                if (!newFile.createNewFile()) {
-                    logger.error("目标文件不存在，创建新的目标文件失败：" + newFile.getAbsolutePath());
-                }
-            }
-
             bis = new BufferedInputStream(new FileInputStream(sourceFile));
             bos = new BufferedOutputStream(new FileOutputStream(newFile));
             byte[] temp = new byte[1024];
@@ -92,18 +96,6 @@ public class FileUtil {
         BufferedWriter bufferedWriter = null;
         long startTime = System.currentTimeMillis();
         try {
-            //判断文件是否存在
-            if (!sourceFile.exists()) {
-                logger.error("源文件不存在：" + sourceFile.getAbsolutePath());
-                return false;
-            }
-            //判断目标文件是否存在，不存在创建一个新的文件
-            if (!newFile.exists()) {
-                if (!newFile.createNewFile()) {
-                    logger.error("目标文件不存在，创建新的目标文件失败：" + newFile.getAbsolutePath());
-                }
-            }
-            //
             bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(sourceFile),
                     StandardCharsets.UTF_8));
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(newFile),
@@ -141,7 +133,7 @@ public class FileUtil {
 
     public static void main(String[] args) {
         System.out.println(FileUtil.readAndWriterFile(
-                "C:\\Users\\biogss\\Desktop\\123.jpg",
-                "D:\\123.jpg"));
+                "C:\\Users\\biogss\\Desktop\\1234.jpg",
+                "D:\\123456.jpg"));
     }
 }
