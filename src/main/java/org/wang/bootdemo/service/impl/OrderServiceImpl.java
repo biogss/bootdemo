@@ -37,10 +37,11 @@ public class OrderServiceImpl implements OrderService {
 //        return orderMapper.insertSelective(order);
 
 //        redisTemplate.opsForValue().set("order1", order,1000, TimeUnit.SECONDS);
-        redisTemplate.opsForList().leftPush("mylist", order);
+//        redisTemplate.opsForList().leftPush("mylist", order);
 //        redisTemplate.opsForList().leftPush("mylist", "123");
 //        redisTemplate.opsForList().leftPush("mylist", "456");
 //        redisTemplate.opsForList().rightPush("mylist", "abc");
+        redisTemplate.opsForHash().put("myhash", "1", order);
         return 1;
     }
 
