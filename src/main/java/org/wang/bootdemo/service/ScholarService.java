@@ -9,5 +9,5 @@ public interface ScholarService {
      * 扔骰子
      * @return String
      */
-    String rengShaiZi();
+    String throwDice();
 }

@@ -22,7 +22,7 @@ public class ScholarTest {
     public void test(){
         chip.reset();
         while (! chip.isAllEmpty()) {
-            System.out.println(scholarService.rengShaiZi());
+            System.out.println(scholarService.throwDice());
         }
         scholarService.printScholars();
         scholarService.printMaxScholar();
