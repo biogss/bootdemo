@@ -43,8 +43,10 @@ public class DateHelper {
         return parse;
     }
     public static void main(String[] args) {
-//        System.out.println(DateHelper.dateToString(new Date(), "yyyy-mm-dd"));
-//        Date date = DateHelper.stringToDate("2020-01-01 10:00:00", "yyyy-mm-dd hh:mm:ss");
-//        System.out.println(date);
+        int num = 1;
+        for (int i = 0; i< 3; i++) {
+            num = num << 1;
+            System.out.println(num);
+        }
     }
 }

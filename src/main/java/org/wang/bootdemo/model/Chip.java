@@ -92,7 +92,8 @@ public class Chip{
         int counter = 1;
         //发放点数不成功循环发送
         while (!distribute(point/counter)) {
-            counter  = counter * 2;
+            //左移一位相当于乘以2，且速度更快
+            counter  = counter << 1;
         }
     }
 
