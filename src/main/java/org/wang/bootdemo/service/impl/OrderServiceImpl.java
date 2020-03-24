@@ -9,8 +9,10 @@ import org.wang.bootdemo.service.OrderService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 /**
  * @ClassName OrderServiceImpl
@@ -76,4 +78,16 @@ public class OrderServiceImpl implements OrderService {
         return orderList;
 //        return orderMapper.getOrderByUserId(userId);
     }
+
+    public static void main(String[] args) {
+        List<String> alist = Arrays.asList("123","456","789","123");
+        alist.forEach(s -> {
+            if ("123".equals(s)) {
+                System.out.println("123");
+            }
+        });
+        Runnable target;
+        new Thread(() -> System.out.println(Thread.currentThread().getName() + ",hello")).start();
+    }
+
 }

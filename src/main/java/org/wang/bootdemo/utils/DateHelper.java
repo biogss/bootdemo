@@ -2,7 +2,9 @@ package org.wang.bootdemo.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ClassName DateHelper
@@ -43,10 +45,7 @@ public class DateHelper {
         return parse;
     }
     public static void main(String[] args) {
-        int num = 1;
-        for (int i = 0; i< 3; i++) {
-            num = num << 1;
-            System.out.println(num);
-        }
+        List<String> alist = new ArrayList<>(20);
+        alist.add(null);
     }
 }
